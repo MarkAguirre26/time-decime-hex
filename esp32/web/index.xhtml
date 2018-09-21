@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8'  ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            body{
+                min-width: 800px;
+            }
+            .row-header-text{
+                font-size: 11px;
+                padding-left: 5px !important;
+            }
+            /*            th{
+                            font-size: 14px;
+                        }*/
+            .ui-inputfield {
+                margin: 0;
+                outline: medium none;
+                padding: 2px;
+                font-weight: normal;
+                width: 100%;
+            }
+
+            .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+                border: 1px solid #1484e6;
+                background: #fff;
+                -moz-box-shadow: inset 0 0px 0px #8f8f8f;
+                -webkit-box-shadow: inset 0 0px 0px #8f8f8f;
+                box-shadow: inset 0 0px 0px #8f8f8f;
+                color: #2293f7;
+            }
+
+
+
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad" style=" padding: 10%;">
+
+                <h:form id="form">
+                    <p:growl id="msgs" showDetail="true"/>
+
+                    <p:dataTable id="tables1" 
+                                 widgetVar="tables1" 
+                                 var="t" 
+                                 value="#{tableView.tables}" 
+                                 editable="true" 
+                                 editMode="cell"
+                                 draggableRows="true"                                 
+                                 scrollable="true" 
+                                 scrollWidth="1080px">
+                        <f:facet name="header">
+                            <p>Timeline - Every box is 15ms which means boxes will give you 1s</p>
+                        </f:facet>
+
+                        <p:ajax event="cellEdit" listener="#{tableView.onCellEdit}" update=":form:msgs" />
+                        <p:ajax event="rowReorder" listener="#{tableView.onRowReorder}" update=":form:msgs" />
+
+
+                        <p:column class="row-header-text" headerText=""  style="width: 25px">
+                            <h:outputText value="#{t.cell1}" />
+                        </p:column>
+
+                        <p:column class="row-header-text" headerText="" style="width: 45px">
+                            <h:outputText value="#{t.cell2}" />
+                        </p:column>
+
+                        <p:column class="row-header-text" headerText="0">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell3}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell3" value="#{t.cell3}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>               
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell4}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell4" value="#{t.cell4}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell5}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell5" value="#{t.cell5}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell6}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell6" value="#{t.cell6}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="1">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell7}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell7" value="#{t.cell7}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell8}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell8" value="#{t.cell8}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell9}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell9" value="#{t.cell9}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell10}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell10" value="#{t.cell10}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="2">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell11}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="modelInput" value="#{t.cell11}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell12}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell12" value="#{t.cell12}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell13}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell13" value="#{t.cell13}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell14}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell14" value="#{t.cell14}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="3">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell15}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell15" value="#{t.cell15}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell16}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell16" value="#{t.cell16}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell17}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell17" value="#{t.cell17}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell18}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell18" value="#{t.cell18}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="4">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell19}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell19" value="#{t.cell19}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell20}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell20" value="#{t.cell21}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell21}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell21" value="#{t.cell21}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell22}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell22" value="#{t.cell22}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="5">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell23}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell23" value="#{t.cell23}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell24}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell24" value="#{t.cell24}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell25}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell25" value="#{t.cell25}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell26}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell26" value="#{t.cell26}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="6">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell27}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell27" value="#{t.cell27}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell28}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell28" value="#{t.cell28}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell29}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell29" value="#{t.cell29}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell30}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell30" value="#{t.cell30}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="7">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell31}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell31" value="#{t.cell31}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell32}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell32" value="#{t.cell32}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell33}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell33" value="#{t.cell33}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell34}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell34" value="#{t.cell34}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="8">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell35}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell35" value="#{t.cell35}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell36}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell36" value="#{t.cell36}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell37}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell37" value="#{t.cell37}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell38}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell38" value="#{t.cell38}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="9">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell39}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell39" value="#{t.cell39}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell40}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell40" value="#{t.cell40}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell41}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell41" value="#{t.cell41}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell42}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell42" value="#{t.cell42}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="10">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell43}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell43" value="#{t.cell43}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell44}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell44" value="#{t.cell44}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell45}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell45" value="#{t.cell45}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell46}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell46" value="#{t.cell46}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="11">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell47}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell47" value="#{t.cell47}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell48}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell48" value="#{t.cell48}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell49}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell49" value="#{t.cell49}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column class="row-header-text" headerText="">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell50}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell50" value="#{t.cell50}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column class="row-header-text" headerText="12">
+                            <p:cellEditor rendered="#{t.cell2.contains('Output')}">
+                                <f:facet name="output"><h:outputText value="#{t.cell51}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="cell51" value="#{t.cell51}" /></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                    </p:dataTable>
+
+                    <!--                    <p:outputLabel value="Decimal: "/>
+                                        <p:outputLabel value="Hex Value: "/>-->
+
+
+                    <p:contextMenu for="tables1" widgetVar="cMenu">   
+                        <p:menuitem value="Edit Cell" icon="ui-icon-search" onclick="PF('tables1').showCellEditor();return false;"/>  
+                        <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>  
+                    </p:contextMenu> 
+
+
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:commandButton value="Add new" styleClass="ui-priority-primary" process="@this" update=":form:msgs"
+                                             actionListener="#{tableView.onAddNew()}" oncomplete="PF('tables1').addRow();"/>
+                           
+                        </div>
+                    </div>
+
+                </h:form>
+
+            </div>
+        </div>
+    </h:body>
+</html>
+
