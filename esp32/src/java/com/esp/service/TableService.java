@@ -5,7 +5,6 @@
  */
 package com.esp.service;
 
-import com.esp.model.Car;
 import com.esp.model.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +20,24 @@ import javax.faces.bean.ManagedBean;
 public class TableService {
 
     public List<Table> createTableList(int size) {
+
         List<Table> list = new ArrayList<Table>();
         for (int i = 0; i < size; i++) {
 //            System.out.println(i);
             list.add(new Table("Bit" + (i + 1), "Output" + (i + 1), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
         }
-        list.add(new Table("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
-        list.add(new Table("", "Decimal:", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
+       // list.add(new Table("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
+         list.add(new Table("", "Decimal:", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
         list.add(new Table("", "Hex Value: ", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
 
         return list;
+    }
+
+    public String binaryToDecimal(String binaryString) {
+//        String binaryString = "10011111";
+        int decimal = Integer.parseInt(binaryString, 2);
+        System.out.println(binaryString+" "+decimal);
+        return String.valueOf(decimal);
     }
 
 }
