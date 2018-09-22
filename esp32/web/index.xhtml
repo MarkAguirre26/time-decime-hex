@@ -36,15 +36,31 @@
                 color: #2293f7;
             }
 
+/*            .ui-datatable .ui-datatable-header {
+                border-bottom: 0 none;
+                width: 100% !important;
+            }*/
+
+            .ui-datatable .ui-datatable-scrollable-body {
+                min-height: 0;
+                width: 100% !important;
+            }
+
+            .ui-datatable-scrollable .ui-datatable-scrollable-header, .ui-datatable-scrollable .ui-datatable-scrollable-footer {
+                position: relative;
+                width: 100% !important;
+            }
+
 
 
         </style>
+
 
     </h:head>
     <h:body>
 
         <div class="ui-g">
-            <div class="ui-g-12 ui-g-nopad" style=" padding: 10%;">
+            <div class="ui-g-12 ui-g-nopad" style=" padding: 3%;">
 
                 <h:form id="formTable">
                     <p:growl id="msgs" showDetail="true"/>
@@ -55,14 +71,14 @@
                                  value="#{tableView.tables}" 
                                  editable="true" 
                                  editMode="cell"                                 
-                                 scrollable="true" 
-                                 scrollWidth="1080px">
+                                 scrollable="true" >
+<!--                                 scrollWidth="1080px">-->
                         <f:facet name="header">
                             Timeline - Every box is 15ms which means boxes will give you 1s
                         </f:facet>
 
                         <p:ajax event="cellEdit" listener="#{tableView.onCellEdit}" update=":formTable:msgs" />
-                       
+
 
 
                         <p:column class="row-header-text" headerText=""  style="width: 25px">
@@ -74,7 +90,7 @@
                         </p:column>
 
                         <p:column class="row-header-text" headerText="0">
-                             <h:outputText value="#{t.cell3}" rendered="#{!t.cell2.contains('Output')}" />
+                            <h:outputText value="#{t.cell3}" rendered="#{!t.cell2.contains('Output')}" />
                             <p:cellEditor rendered="#{t.cell2.contains('Output')}">
                                 <f:facet name="output"><h:outputText value="#{t.cell3}" /></f:facet>
                                 <f:facet name="input"><p:inputText id="cell3" value="#{t.cell3}" /></f:facet>
@@ -373,7 +389,7 @@
 
                     </p:dataTable>
 
-              
+
 
 
                     <p:contextMenu for="tables1" widgetVar="cMenu">   
@@ -381,18 +397,18 @@
                         <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>  
                     </p:contextMenu> 
 
-<!--
-                    <div class="ui-g">
-                        <div class="ui-g-12">
-                            <p:commandButton value="Compute" styleClass="ui-priority-primary" process="@this"  update=":form msgs"
-                                             actionListener="" />
-                           
-                        </div>
-                    </div>-->
+
+                    <!--                    <div class="ui-g">
+                                            <div class="ui-g-12">
+                                                <p:commandButton value="Compute" styleClass="ui-priority-primary"  update=":formTable msgs"
+                                                                 actionListener="" />
+                                               
+                                            </div>
+                                        </div>-->
 
                 </h:form>
-                
-               
+
+                <p>Refresh the page to show the results</p>
 
             </div>
         </div>

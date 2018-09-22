@@ -69,6 +69,9 @@ public class Table implements Serializable {
 //    private String cell52;
 //    private String cell53;
 
+    public Table() {
+    }
+
     public Table(String cell1, String cell2, String cell3, String cell4, String cell5, String cell6, String cell7, String cell8, String cell9, String cell10, String cell11, String cell12, String cell13, String cell14, String cell15, String cell16, String cell17, String cell18, String cell19, String cell20, String cell21, String cell22, String cell23, String cell24, String cell25, String cell26, String cell27, String cell28, String cell29, String cell30, String cell31, String cell32, String cell33, String cell34, String cell35, String cell36, String cell37, String cell38, String cell39, String cell40, String cell41, String cell42, String cell43, String cell44, String cell45, String cell46, String cell47, String cell48, String cell49, String cell50, String cell51) {
         this.cell1 = cell1;
         this.cell2 = cell2;

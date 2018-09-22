@@ -5,6 +5,11 @@
  */
 package com.esp.service;
 
+import com.esp.model.Table;
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author Mark
@@ -12,8 +17,12 @@ package com.esp.service;
 public class test {
 
     public static void main(String[] args) {
-        String binaryString = "10011111";
-        int decimal = Integer.parseInt(binaryString, 2);
-        System.out.println(decimal);
+        
+       
+       
+
     }
+
+   
+
 }
