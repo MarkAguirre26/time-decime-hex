@@ -1,2 +1,2 @@
-# time-decime-hex
+# time-decimal-hex
 prototype for arduino project
